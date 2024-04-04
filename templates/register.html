@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация{% endblock %}
+{% block style %}
+.container {
+            max-width: 500px;
+            margin: 100px auto;
+        }
+
+        form {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form input {
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        #current-time {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+{% endblock %}
+
+{% block body %}
+    <div class="container"><h1>Регистрация</h1>
+        <form><input type="text" class="form-control" placeholder="Имя" required> <input type="email" class="form-control"
+                                                                                         placeholder="Email" required>
+            <input type="password" class="form-control" placeholder="Пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+    <div id="current-time">
+        <span>Текущие дата и время: {{ current_date }} {{ current_time }}</span>
+    </div>
+{% endblock %}

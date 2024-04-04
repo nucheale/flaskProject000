@@ -1,0 +1,4 @@
+/.env
+/identifier.sqlite
+/venv
+/.idea
