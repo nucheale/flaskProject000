@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Войти{% endblock %}
+{% block style %}
+.container {
+            max-width: 500px;
+            margin: 100px auto;
+        }
+
+        form {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form input {
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        #current-time {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+{% endblock %}
+
+{% block body %}
+    <div class="container"><h1>Вход</h1>
+        <form method="post">
+            <label for="username_email">Логин или email</label>
+            <input type="text" id="username_email" name="username_email" class="form-control" placeholder="Логин или email" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Пароль" required>
+            <button type="submit" value="Login">Войти</button>
+        </form>
+        {% if incorrect_data %}
+            <p>{{ incorrect_data }}</p>
+        {% endif %}
+        <div><span>Нет аккаунта? </span><a href="/register">Зарегистрироваться</a> </div>
+    </div>
+    <div id="current-time">
+        <span>Текущие дата и время: {{ current_datetime }}</span>
+    </div>
+{% endblock %}

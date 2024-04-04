@@ -39,13 +39,41 @@
 
 {% block body %}
     <div class="container"><h1>Регистрация</h1>
-        <form><input type="text" class="form-control" placeholder="Имя" required> <input type="email" class="form-control"
-                                                                                         placeholder="Email" required>
-            <input type="password" class="form-control" placeholder="Пароль" required>
-            <button type="submit">Зарегистрироваться</button>
+        <form method="post">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Логин" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Пароль" required>
+            <button type="submit" value="Register">Зарегистрироваться</button>
         </form>
+        {% if incorrect_username %}
+            <p>{{ incorrect_username }}</p>
+        {% endif %}
+        <p id="incorrect_username"></p>
+        <div><span>Уже зарегистрированы? </span><a href="/login">Войти</a> </div>
     </div>
     <div id="current-time">
-        <span>Текущие дата и время: {{ current_date }} {{ current_time }}</span>
+        <span>Текущие дата и время: {{ current_datetime }}</span>
     </div>
 {% endblock %}
+
+{#{% block script %}#}
+{#<script>#}
+{#    $(document).ready(function() {#}
+{#        $('username').blur(function(){#}
+{#            var username = $(this).val();#}
+{##}
+{#            $.ajax({#}
+{#                type: 'POST',#}
+{#                url: '/check_username',#}
+{#                data: {username: username},#}
+{#                success: function(response){#}
+{#                    $('#incorrect_username').text(response.message);#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#    });#}
+{#</script>#}
+{#{% endblock %}#}
