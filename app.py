@@ -15,7 +15,7 @@ def index():
 
 @app.route('/register')
 def register():
-    return render_template('register.html', current_date='4 апреля 2024', current_time='15:15')
+    return render_template('register.html', current_date='DATE', current_time='TIME')
 
 
 if __name__ == '__main__':
